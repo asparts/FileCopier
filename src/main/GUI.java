@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -13,11 +14,16 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import org.apache.commons.io.FileUtils;
+
 public class GUI{
 
 	private JFrame frame;
 	private JTextField sourceTextField;
 	private JTextField destinationTextField;
+	private JTextField foldersTextField = new JTextField();
+	
+	private JLabel foldersLabel = new JLabel("Folders:");
 	
 	private JButton destinationBrowseButton = new JButton("...");
 	private JButton sourceBrowseButton = new JButton("...");
@@ -26,8 +32,12 @@ public class GUI{
 	
 	private String sourcePath = "";
 	private String destinationPath = "";
+	private String[] folders;
+	
+	private String separator = ";";
 	
 	private final JFileChooser fileChooser = new JFileChooser();
+	
 	
 
 	/**
@@ -101,6 +111,15 @@ public class GUI{
 		
 		destinationBrowseButton.setBounds(262, 83, 20, 23);
 		panel.add(destinationBrowseButton);
+		
+		
+		foldersTextField.setBounds(97, 115, 185, 79);
+		panel.add(foldersTextField);
+		foldersTextField.setColumns(10);
+		
+		
+		foldersLabel.setBounds(41, 129, 46, 14);
+		panel.add(foldersLabel);
 	}
 	
 private void setActionListeners() {
@@ -150,6 +169,16 @@ private void setActionListeners() {
 			
 			System.out.println("Copy");
 			
+			String tempString = foldersTextField.getText().toString();
+			
+			folders = tempString.split(separator);
+			
+			for(int i = 0; i < folders.length; i++) {
+			//System.out.println(folders[i]);
+				copyFolders(folders[i].toString());
+					
+			}
+			
 		}
 		
 	});
@@ -158,12 +187,21 @@ private void setActionListeners() {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			
-			System.out.println("Copy");
+			System.out.println("Cancel");
 			
 		}
 		
 	});
 	
 }
+	
+	private void copyFolders(String folderName) {
+		try {
+			FileUtils.copyDirectoryToDirectory(new File(sourcePath + "\\" + folderName), new File(destinationPath));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
