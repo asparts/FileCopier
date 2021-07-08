@@ -34,10 +34,18 @@ public class GUI{
 	
 	private JLabel foldersLabel = new JLabel("Folders:");
 	
+	private JScrollPane scrollPane_1 = new JScrollPane();
+	private JPanel panel_1 = new JPanel();
+	
 	private JButton destinationBrowseButton = new JButton("...");
 	private JButton sourceBrowseButton = new JButton("...");
 	private JButton cancelButton = new JButton("Cancel");
 	private JButton copyButton = new JButton("Copy");
+	
+	private JButton shortcutButton_L31 = new JButton("L31");
+	private JButton shortcutButton_L34 = new JButton("L34");
+	private JButton shortcutButton_L32 = new JButton("L32");
+	private JButton shortcutButton_L33 = new JButton("L33");
 	
 	private String sourcePath = "";
 	private String destinationPath = "";
@@ -103,6 +111,20 @@ public class GUI{
 	private String R42 = "072;139;436;564;748";
 	private String R43 = "244;425;436;494;564;748;785;791;859;889";
 	private String R44 = "244;425;436;494;564;615;859;889";
+	private String R51 = "105;578;620;697;777;785;889";
+	private String R52 = "564;615;620;889";
+	private String R53 = "105;290;777";
+	private String R54 = "777";
+	private String S41 = "139;240;751;851";
+	private String S42 = "240;241;683;751;845;851";
+	private String S43 = "139;240;241;564;615;683;751";
+	private String S44 = "139;240;241;614;615;683;698;751;845";
+
+
+
+
+
+
 	
 
 
@@ -219,34 +241,17 @@ public class GUI{
 		foldersLabel.setBounds(41, 129, 46, 14);
 		panel.add(foldersLabel);
 		
-		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane_1.setBounds(292, 11, 132, 217);
+		
+		
+		this.addShortcutSection();
 		panel.add(scrollPane_1);
-		
-		JPanel panel_1 = new JPanel();
-		scrollPane_1.setViewportView(panel_1);
-		panel_1.setLayout(null);
-		
-		JButton btnNewButton = new JButton("L1");
-		btnNewButton.setBounds(0, 0, 43, 23);
-		panel_1.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("New button");
-		btnNewButton_1.setBounds(0, 23, 43, 23);
-		panel_1.add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("New button");
-		btnNewButton_2.setBounds(42, 0, 36, 23);
-		panel_1.add(btnNewButton_2);
 		
 		populateMenuBar(menuBar);
 		frame.setJMenuBar(menuBar);
 		
 	}
 	
-private void setActionListeners() {
+	private void setActionListeners() {
 	
 	sourceBrowseButton.addActionListener(new ActionListener() {
 
@@ -311,11 +316,14 @@ private void setActionListeners() {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			
+			
+			
 			System.out.println("Cancel");
 			
 		}
 		
 	});
+	
 	
 	
 }
@@ -416,5 +424,75 @@ private void setActionListeners() {
 		JPanel optionsPanel = new JPanel();
 		
 		optionsFrame.getContentPane().add(optionsPanel);
+	}
+	
+	private void addShortcutSection() {
+		
+		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrollPane_1.setBounds(292, 11, 132, 217);
+		
+		
+		
+		scrollPane_1.setViewportView(panel_1);
+		panel_1.setLayout(null);
+		
+		
+		
+		shortcutButton_L31.setBounds(0, 0, 55, 23);
+		shortcutButton_L31.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+					foldersTextField.setText(L31);	
+				
+				
+			}
+		});
+		panel_1.add(shortcutButton_L31);
+		
+		
+		shortcutButton_L32.setBounds(58, 0, 55, 23);
+		shortcutButton_L32.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+					foldersTextField.setText(L32);	
+				
+				
+			}
+		});
+		panel_1.add(shortcutButton_L32);
+		
+		shortcutButton_L33.setBounds(0, 21, 55, 23);
+		shortcutButton_L33.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+					foldersTextField.setText(L33);	
+				
+				
+			}
+		});
+		panel_1.add(shortcutButton_L33);
+		
+		
+		shortcutButton_L34.setBounds(58, 21, 55, 23);
+		shortcutButton_L34.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+					foldersTextField.setText(L34);	
+				
+				
+			}
+		});
+		panel_1.add(shortcutButton_L34);
+		
+	}
+	private void removeDuplictes() {
+		
+		String foldersString = foldersTextField.getText().toString();
+		String[] foldersArray = foldersString.split(this.separator);
+		for(int i = 0; i < foldersArray.length; i++) {
+			foldersString += foldersArray[i] + "" + this.separator;
+		}
+		foldersTextField.setText(foldersString);
 	}
 }
