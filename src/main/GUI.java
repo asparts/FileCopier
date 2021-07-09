@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -16,12 +18,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 
 import org.apache.commons.io.FileUtils;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.BoxLayout;
 
 public class GUI{
 
@@ -30,7 +32,7 @@ public class GUI{
 	
 	private JTextField sourceTextField;
 	private JTextField destinationTextField;
-	private JTextField foldersTextField = new JTextField();
+	private JTextArea foldersTextArea = new JTextArea();
 	
 	private JLabel foldersLabel = new JLabel("Folders:");
 	
@@ -42,10 +44,7 @@ public class GUI{
 	private JButton cancelButton = new JButton("Cancel");
 	private JButton copyButton = new JButton("Copy");
 	
-	private JButton shortcutButton_L31 = new JButton("L31");
-	private JButton shortcutButton_L34 = new JButton("L34");
-	private JButton shortcutButton_L32 = new JButton("L32");
-	private JButton shortcutButton_L33 = new JButton("L33");
+	
 	
 	private String sourcePath = "";
 	private String destinationPath = "";
@@ -119,7 +118,82 @@ public class GUI{
 	private String S42 = "240;241;683;751;845;851";
 	private String S43 = "139;240;241;564;615;683;751";
 	private String S44 = "139;240;241;614;615;683;698;751;845";
-
+	
+	private JCheckBox shortcut_L31 = new JCheckBox("L31");
+	private JCheckBox shortcut_L34 = new JCheckBox("L34");
+	private JCheckBox shortcut_L32 = new JCheckBox("L32");
+	private JCheckBox shortcut_L33 = new JCheckBox("L33");
+	
+	private final JCheckBox shortcut_L41 = new JCheckBox("L41");
+	private final JCheckBox shortcut_L42 = new JCheckBox("L42");
+	private final JCheckBox shortcut_L43 = new JCheckBox("L43");
+	private final JCheckBox shortcut_L44 = new JCheckBox("L44");
+	
+	private final JCheckBox shortcut_M31 = new JCheckBox("M31");
+	private final JCheckBox shortcut_M32 = new JCheckBox("M32");
+	private final JCheckBox shortcut_M33 = new JCheckBox("M33");
+	private final JCheckBox shortcut_M34 = new JCheckBox("M34");
+	
+	private final JCheckBox shortcut_M41 = new JCheckBox("M41");
+	private final JCheckBox shortcut_M42 = new JCheckBox("M42");
+	private final JCheckBox shortcut_M43 = new JCheckBox("M43");
+	private final JCheckBox shortcut_M44 = new JCheckBox("M44");
+	
+	private final JCheckBox shortcut_N31 = new JCheckBox("N31");
+	private final JCheckBox shortcut_N32 = new JCheckBox("N32");
+	private final JCheckBox shortcut_N33 = new JCheckBox("N33");
+	private final JCheckBox shortcut_N34 = new JCheckBox("N34");
+	
+	private final JCheckBox shortcut_N41 = new JCheckBox("N41");
+	private final JCheckBox shortcut_N42 = new JCheckBox("N42");
+	private final JCheckBox shortcut_N43 = new JCheckBox("N43");
+	private final JCheckBox shortcut_N44 = new JCheckBox("N44");
+	
+	private final JCheckBox shortcut_N51 = new JCheckBox("N51");
+	private final JCheckBox shortcut_N52 = new JCheckBox("N52");
+	
+	private final JCheckBox shortcut_P31 = new JCheckBox("P31");
+	private final JCheckBox shortcut_P32 = new JCheckBox("P32");
+	private final JCheckBox shortcut_P33 = new JCheckBox("P33");
+	private final JCheckBox shortcut_P34 = new JCheckBox("P34");
+	
+	private final JCheckBox shortcut_P41 = new JCheckBox("P41");
+	private final JCheckBox shortcut_P42 = new JCheckBox("P42");
+	private final JCheckBox shortcut_P43 = new JCheckBox("P43");
+	private final JCheckBox shortcut_P44 = new JCheckBox("P44");
+	
+	private final JCheckBox shortcut_Q33 = new JCheckBox("Q33");
+	private final JCheckBox shortcut_Q41 = new JCheckBox("Q41");
+	/*
+	private final JCheckBox chckbxNewCheckBox_6 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_1_3 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_2_3 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_3_3 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_7 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_1_4 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_2_4 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_3_4 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_8 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_1_5 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_2_5 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_3_5 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_9 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_1_6 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_2_6 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_3_6 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_10 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_1_7 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_2_7 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_3_7 = new JCheckBox("N");
+	private final JCheckBox chckbxNewCheckBox_10 = new JCheckBox("P43");
+	private final JCheckBox chckbxNewCheckBox_1_7 = new JCheckBox("P44");
+	
+	private final JCheckBox chckbxNewCheckBox_2_7 = new JCheckBox("Q33");
+	private final JCheckBox chckbxNewCheckBox_3_7 = new JCheckBox("Q41");
+	private final JCheckBox chckbxNewCheckBox_10 = new JCheckBox("P43");
+	private final JCheckBox chckbxNewCheckBox_1_7 = new JCheckBox("P44");
+	
+/*
 
 
 
@@ -192,7 +266,7 @@ public class GUI{
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 450, 317);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JPanel panel = new JPanel();
@@ -233,9 +307,10 @@ public class GUI{
 		panel.add(destinationBrowseButton);
 		
 		
-		foldersTextField.setBounds(97, 115, 185, 79);
-		panel.add(foldersTextField);
-		foldersTextField.setColumns(10);
+		foldersTextArea.setBounds(97, 115, 185, 79);
+		foldersTextArea.setLineWrap(true); //TODO: check this more
+		panel.add(foldersTextArea);
+		foldersTextArea.setColumns(10);
 		
 		
 		foldersLabel.setBounds(41, 129, 46, 14);
@@ -298,7 +373,7 @@ public class GUI{
 			
 			System.out.println("Copy");
 			
-			String tempString = foldersTextField.getText().toString();
+			String tempString = foldersTextArea.getText().toString();
 			
 			folders = tempString.split(separator);
 			
@@ -415,13 +490,168 @@ public class GUI{
 	
 	private void showOptions() {
 		JFrame optionsFrame = new JFrame("Options");
-		optionsFrame.setBounds(100, 100, 300, 300);
+		optionsFrame.setBounds(100, 100, 600, 600);
 		//optionsFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		optionsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		optionsFrame.setVisible(true);
 		optionsFrame.requestFocus();
+		optionsFrame.setResizable(false);
 		
 		JPanel optionsPanel = new JPanel();
+		JPanel optionsViewPort = new JPanel();
+		JScrollPane optionsScrollPane = new JScrollPane();
+		
+		JTextField L31_tfield = new JTextField();
+		JLabel L31_label = new JLabel("L31");
+		JTextField L32_tfield = new JTextField();
+		JLabel L32_label = new JLabel("L32");
+		JTextField L33_tfield = new JTextField();
+		JLabel L33_label = new JLabel("L33");
+		JTextField L34_tfield = new JTextField();
+		JLabel L34_label = new JLabel("L34");
+		
+		JTextField L41_tfield = new JTextField();
+		JLabel L41_label = new JLabel("L41");
+		JTextField L42_tfield = new JTextField();
+		JLabel L42_label = new JLabel("L42");
+		JTextField L43_tfield = new JTextField();
+		JLabel L43_label = new JLabel("L43");
+		JTextField L44_tfield = new JTextField();
+		JLabel L44_label = new JLabel("L44");
+		
+		JTextField M31_tfield = new JTextField();
+		JLabel M31_label = new JLabel("M31");
+		JTextField M32_tfield = new JTextField();
+		JLabel M32_label = new JLabel("M32");
+		JTextField M33_tfield = new JTextField();
+		JLabel M33_label = new JLabel("M33");
+		JTextField M34_tfield = new JTextField();
+		JLabel M34_label = new JLabel("M34");
+		
+		JTextField M41_tfield = new JTextField();
+		JLabel M41_label = new JLabel("M41");
+		JTextField M42_tfield = new JTextField();
+		JLabel M42_label = new JLabel("M42");
+		JTextField M43_tfield = new JTextField();
+		JLabel M43_label = new JLabel("M43");
+		JTextField M44_tfield = new JTextField();
+		JLabel M44_label = new JLabel("M44");
+		
+		optionsScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		optionsScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+		optionsScrollPane.setPreferredSize(new Dimension(590, 590));
+		optionsPanel.setLayout(null);
+		
+		optionsViewPort.setLayout(null);
+		optionsScrollPane.setBounds(0, 0, 590, 590);
+		optionsPanel.add(optionsScrollPane);
+		
+		
+		//SETTING LABELS AND TEXTFIELDS --------------->
+		L31_label.setBounds(20, 10, 40, 20);
+		L31_tfield.setBounds(100, 10, 300, 20);
+		
+		optionsViewPort.add(L31_label);
+		optionsViewPort.add(L31_tfield);
+		
+		L32_label.setBounds(20, 30, 40, 20);
+		L32_tfield.setBounds(100, 30, 300, 20);
+		
+		optionsViewPort.add(L32_label);
+		optionsViewPort.add(L32_tfield);
+		
+		L33_label.setBounds(20, 50, 40, 20);
+		L33_tfield.setBounds(100, 50, 300, 20);
+		
+		optionsViewPort.add(L33_label);
+		optionsViewPort.add(L33_tfield);
+		
+		L34_label.setBounds(20, 70, 40, 20);
+		L34_tfield.setBounds(100, 70, 300, 20);
+		
+		optionsViewPort.add(L34_label);
+		optionsViewPort.add(L34_tfield);
+		//--
+		L41_label.setBounds(20, 90, 40, 20);
+		L41_tfield.setBounds(100, 90, 300, 20);
+		
+		optionsViewPort.add(L41_label);
+		optionsViewPort.add(L41_tfield);
+		
+		L42_label.setBounds(20, 110, 40, 20);
+		L42_tfield.setBounds(100, 110, 300, 20);
+		
+		optionsViewPort.add(L42_label);
+		optionsViewPort.add(L42_tfield);
+		
+		L43_label.setBounds(20, 130, 40, 20);
+		L43_tfield.setBounds(100, 130, 300, 20);
+		
+		optionsViewPort.add(L43_label);
+		optionsViewPort.add(L43_tfield);
+		
+		L44_label.setBounds(20, 150, 40, 20);
+		L44_tfield.setBounds(100, 150, 300, 20);
+		
+		optionsViewPort.add(L44_label);
+		optionsViewPort.add(L44_tfield);
+		
+		
+		//------------------
+		
+		M31_label.setBounds(20, 170, 40, 20);
+		M31_tfield.setBounds(100, 170, 300, 20);
+		
+		optionsViewPort.add(M31_label);
+		optionsViewPort.add(M31_tfield);
+		
+		M32_label.setBounds(20, 190, 40, 20);
+		M32_tfield.setBounds(100, 190, 300, 20);
+		
+		optionsViewPort.add(M32_label);
+		optionsViewPort.add(M32_tfield);
+		
+		M33_label.setBounds(20, 210, 40, 20);
+		M33_tfield.setBounds(100, 210, 300, 20);
+		
+		optionsViewPort.add(M33_label);
+		optionsViewPort.add(M33_tfield);
+		
+		M34_label.setBounds(20, 230, 40, 20);
+		M34_tfield.setBounds(100, 230, 300, 20);
+		
+		optionsViewPort.add(M34_label);
+		optionsViewPort.add(M34_tfield);
+
+		//------------
+		
+		M41_label.setBounds(20, 250, 40, 20);
+		M41_tfield.setBounds(100, 250, 300, 20);
+		
+		optionsViewPort.add(M41_label);
+		optionsViewPort.add(M41_tfield);
+		
+		M42_label.setBounds(20, 270, 40, 20);
+		M42_tfield.setBounds(100, 270, 300, 20);
+		
+		optionsViewPort.add(M42_label);
+		optionsViewPort.add(M42_tfield);
+		
+		M43_label.setBounds(20, 290, 40, 20);
+		M43_tfield.setBounds(100, 290, 300, 20);
+		
+		optionsViewPort.add(M43_label);
+		optionsViewPort.add(M43_tfield);
+		
+		M44_label.setBounds(20, 310, 40, 20);
+		M44_tfield.setBounds(100, 310, 300, 20);
+		
+		optionsViewPort.add(M44_label);
+		optionsViewPort.add(M44_tfield);
+		
+		//ENDING HERE ------------------>
+		
+		optionsScrollPane.setViewportView(optionsViewPort);
 		
 		optionsFrame.getContentPane().add(optionsPanel);
 	}
@@ -430,69 +660,229 @@ public class GUI{
 		
 		scrollPane_1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane_1.setBounds(292, 11, 132, 217);
 		
+		scrollPane_1.setBounds(292, 11, 132, 234);
 		
+		panel_1.setPreferredSize(new Dimension(800, 600));
 		
 		scrollPane_1.setViewportView(panel_1);
 		panel_1.setLayout(null);
 		
+		System.out.println(scrollPane_1.getViewport().getSize());
 		
-		
-		shortcutButton_L31.setBounds(0, 0, 55, 23);
-		shortcutButton_L31.addActionListener(new ActionListener() {
+		shortcut_L31.setBounds(0, 0, 55, 23);
+		shortcut_L31.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-					foldersTextField.setText(L31);	
-				
+				if(L31 != null) {
+					foldersTextArea.setText(foldersTextArea.getText() + L31);	
+				}
 				
 			}
 		});
-		panel_1.add(shortcutButton_L31);
+		panel_1.add(shortcut_L31);
 		
 		
-		shortcutButton_L32.setBounds(58, 0, 55, 23);
-		shortcutButton_L32.addActionListener(new ActionListener() {
+		shortcut_L32.setBounds(58, 0, 55, 23);
+		shortcut_L32.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-					foldersTextField.setText(L32);	
-				
+				if(L32 != null) {
+					foldersTextArea.setText(foldersTextArea.getText() + L32);	
+				}
 				
 			}
 		});
-		panel_1.add(shortcutButton_L32);
+		panel_1.add(shortcut_L32);
 		
-		shortcutButton_L33.setBounds(0, 21, 55, 23);
-		shortcutButton_L33.addActionListener(new ActionListener() {
+		shortcut_L33.setBounds(0, 21, 55, 23);
+		shortcut_L33.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-					foldersTextField.setText(L33);	
-				
+				if(L33 != null) {
+					foldersTextArea.setText(foldersTextArea.getText() + L33);	
+				}
 				
 			}
 		});
-		panel_1.add(shortcutButton_L33);
+		panel_1.add(shortcut_L33);
 		
 		
-		shortcutButton_L34.setBounds(58, 21, 55, 23);
-		shortcutButton_L34.addActionListener(new ActionListener() {
+		shortcut_L34.setBounds(58, 21, 55, 23);
+		shortcut_L34.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-					foldersTextField.setText(L34);	
-				
+				if(L34 != null) {
+					foldersTextArea.setText(foldersTextArea.getText() + L34);	
+				}
 				
 			}
 		});
-		panel_1.add(shortcutButton_L34);
+		panel_1.add(shortcut_L34);
+		
+		shortcut_L41.setBounds(0, 47, 49, 23);
+		shortcut_L41.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(L41 != null) {
+				foldersTextArea.setText(foldersTextArea.getText() + L41);
+				}
+			}
+		});
+		panel_1.add(shortcut_L41);
+		
+		shortcut_L42.setBounds(58, 47, 45, 23);
+		panel_1.add(shortcut_L42);
+		shortcut_L42.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(L42 != null) {
+				foldersTextArea.setText(foldersTextArea.getText() + L42);
+				}
+			}
+		});
+		
+		shortcut_L43.setBounds(0, 77, 49, 23);
+		shortcut_L43.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			
+				if(L43 != null) {
+				foldersTextArea.setText(foldersTextArea.getText() + L43);
+				}
+			}
+		});
+		panel_1.add(shortcut_L43);
+		
+		shortcut_L44.setBounds(58, 77, 45, 23);
+		shortcut_L44.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(L44 != null) {
+					foldersTextArea.setText(foldersTextArea.getText() + L44);
+					}
+			}
+		});
+		panel_1.add(shortcut_L44);
+		
+		shortcut_M31.setBounds(0, 103, 49, 23);
+		shortcut_M31.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				foldersTextArea.setText(foldersTextArea.getText() + M31);
+			}
+		});
+		panel_1.add(shortcut_M31);
+		
+		shortcut_M32.setBounds(58, 103, 49, 23);
+		shortcut_M32.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				foldersTextArea.setText(foldersTextArea.getText() + M32);
+			}
+		});
+		panel_1.add(shortcut_M32);
+		
+		shortcut_M33.setBounds(0, 129, 45, 23);
+		shortcut_M33.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				foldersTextArea.setText(foldersTextArea.getText() + M33);
+			}
+		});
+		panel_1.add(shortcut_M33);
+		
+		
+		shortcut_M34.setBounds(58, 129, 49, 23);
+		shortcut_M34.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				foldersTextArea.setText(foldersTextArea.getText() + M34);
+			}
+		});
+		panel_1.add(shortcut_M34);
+		
+		shortcut_M41.setBounds(0, 159, 45, 23);
+		
+		panel_1.add(shortcut_M41);
+		shortcut_M42.setBounds(58, 159, 49, 23);
+		
+		panel_1.add(shortcut_M42);
+		shortcut_M43.setBounds(0, 185, 45, 23);
+		
+		panel_1.add(shortcut_M43);
+		shortcut_M44.setBounds(58, 185, 49, 23);
+		
+		panel_1.add(shortcut_M44);
+		shortcut_N31.setBounds(0, 211, 45, 23);
+		
+		panel_1.add(shortcut_N31);
+		shortcut_N32.setBounds(58, 211, 49, 23);
+		
+		panel_1.add(shortcut_N32);
+		shortcut_N33.setBounds(0, 237, 45, 23);
+		
+		panel_1.add(shortcut_N33);
+		shortcut_N34.setBounds(58, 237, 49, 23);
+		
+		panel_1.add(shortcut_N34);
+		shortcut_N41.setBounds(0, 271, 45, 23);
+		
+		panel_1.add(shortcut_N41);
+		shortcut_N42.setBounds(58, 271, 49, 23);
+		
+		panel_1.add(shortcut_N42);
+		shortcut_N43.setBounds(0, 297, 45, 23);
+		
+		panel_1.add(shortcut_N43);
+		shortcut_N44.setBounds(58, 297, 49, 23);
+		
+		panel_1.add(shortcut_N44);
+		shortcut_N51.setBounds(0, 323, 45, 23);
+		
+		panel_1.add(shortcut_N51);
+		shortcut_N52.setBounds(58, 323, 49, 23);
+		
+		panel_1.add(shortcut_N52);
+		shortcut_P31.setBounds(0, 349, 45, 23);
+		
+		panel_1.add(shortcut_P31);
+		shortcut_P32.setBounds(58, 349, 49, 23);
+		
+		panel_1.add(shortcut_P32);
+		shortcut_P33.setBounds(0, 375, 45, 23);
+		
+		panel_1.add(shortcut_P33);
+		shortcut_P34.setBounds(58, 375, 49, 23);
+		
+		panel_1.add(shortcut_P34);
+		shortcut_P41.setBounds(0, 401, 45, 23);
+		
+		panel_1.add(shortcut_P41);
+		shortcut_P42.setBounds(58, 401, 49, 23);
+		
+		panel_1.add(shortcut_P42);
+		shortcut_P43.setBounds(0, 427, 45, 23);
+		
+		panel_1.add(shortcut_P43);
+		shortcut_P44.setBounds(58, 427, 49, 23);
+		
+		panel_1.add(shortcut_P44);
+		shortcut_Q33.setBounds(0, 453, 45, 23);
+		
+		panel_1.add(shortcut_Q33);
+		shortcut_Q41.setBounds(58, 453, 49, 23);
+		
+		panel_1.add(shortcut_Q41);
+		
 		
 	}
-	private void removeDuplictes() {
+	private void removeDuplictes() { //TODO: Make this to work and remove them after every click...
 		
-		String foldersString = foldersTextField.getText().toString();
+		String foldersString = foldersTextArea.getText().toString();
 		String[] foldersArray = foldersString.split(this.separator);
 		for(int i = 0; i < foldersArray.length; i++) {
 			foldersString += foldersArray[i] + "" + this.separator;
 		}
-		foldersTextField.setText(foldersString);
+		foldersTextArea.setText(foldersString);
 	}
 }
