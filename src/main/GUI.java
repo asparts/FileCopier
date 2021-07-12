@@ -2055,7 +2055,7 @@ public class GUI{
 
 		
 			//List<String> stringList = Files.readAllLines(Paths.get("res/stringvalues.txt"));
-			String[] temp = Files.readAllLines(new File("src/main/res/stringvalues.txt").toPath()).toArray(new String [0]);
+			String[] temp = Files.readAllLines(new File("res/stringvalues.txt").toPath()).toArray(new String [0]);
 			stringList = Arrays.asList(temp);
 			
 			for(int i = 0; i < temp.length; i++) {
@@ -2133,7 +2133,7 @@ public class GUI{
 	private static void saveValuesToFile() throws FileNotFoundException {
 		
 		
-		PrintWriter out = new PrintWriter("src/main/res/stringvalues.txt");
+		PrintWriter out = new PrintWriter("res/stringvalues.txt");
 		
 		out.println(L31.toString() + "\n");
 		out.println(L32.toString() + "\n");
